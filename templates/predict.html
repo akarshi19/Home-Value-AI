@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>House Hunt</title>
+
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">-->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+        }
+
+        #logo{
+            color: black;
+            margin-left: 115px;
+        }
+        h1{
+            display: inline-block;
+            margin-left: 560px;
+            margin-top: -50px;
+            font-family: "Playfair Display", serif;
+            font-weight: 800;
+            font-size: 2.5rem;
+            color: #f69314;
+        }
+        h2 {
+            font-size: 2.5rem;
+            color: #f69314;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            font-family: "Playfair Display", serif;
+            font-weight: 800;
+        }
+        p {
+            margin: 0 0 1rem;
+            color: #999 ;
+        }
+        button.rounded {
+            background: #f69314;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 30px;
+            padding: 10px 30px;
+            line-height: 1.5;
+            cursor: pointer;
+        }
+        .hamburger-menu {
+            background-color: transparent;
+            border: 1px solid #fff;
+            padding: 3px 5px;
+            width: 30px;
+            cursor: pointer;
+            margin-top: 5px;
+            display: none;
+        }
+        .hamburger-menu .strip {
+            display: inline-block;
+            height: 1px;
+            background-color: #fff;
+            margin: 4px 0;
+        }
+        header {
+            background: transparent;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(246, 243, 243, 0.1);
+            position: relative;
+            width: 100%;
+            height: 80px;
+            z-index: 3;
+        }
+        header ul {
+            list-style-type: none;
+            margin-left: 1010px;
+            margin-top: -80px;
+         }
+
+        header ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+        #close-flyout {
+            display: none;
+        }
+        header ul li a {
+            color: #0f0e0e;
+            font-size: 16px;
+            text-decoration: none;
+        }
+        header ul.is-sticky li a {
+            color: #000;
+        }
+        header ul li a:hover,
+        header ul li a.active {
+        color: #2520201e;
+        }
+        header ul.is-sticky li a:hover
+        {
+            color: #f69314;
+        }
+        .container1 {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            max-width: 300px;
+            text-align: center;
+        }
+        .card ul{
+            color: #999;
+            font-size: large;
+            gap: 10px;
+        }
+
+        input[type="text"],input[type="number"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+    </style>
+  </head>
+  <body>
+  <header>
+        <div class="flex container">
+
+            <div>
+                <h1 style="margin-top: 3px; margin-left: 450px;">Welcome to House Price Prediction </h1>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="card1" style="width: 100%; height: 100%; margin-top: 50px">
+                <div class="card-header">
+                    <h2 style="color: black; margin-left: 190px">Predict the Price</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" accept-charset="UTF-8">
+                        <div class="row">
+                            <div class="col-md-6 form group"  style="text-align: center">
+                                <label><b>Select the Location: </b></label>
+                                <select class="select-picker form-control" id="Address" name="Address" required="1"
+                                        style="width:100%; height: 40px">
+                                    {% for Address in Addresses %}
+                                        <option value="{{ Address }}">{{ Address }}</option>
+                                    {% endfor %}
+                            </select>
+                            </div>
+                            <div class="col-md-6 form group"  style="text-align: center">
+                                <label><b>Enter Area Sqft: </b></label>
+                                <input type="number" class="form-control" id="area" name="area" placeholder="Enter Area Sqft">
+                            </div>
+                            <div class="col-md-6 form group"  style="text-align: center">
+                                <label><b>Enter BHK: </b></label>
+                                <input type="number" class="form-control" id="Bedrooms" name="Bedrooms" placeholder="Enter BHK">
+                            </div>
+
+                            <div class="col-md-12 form-group">
+                                <button class="btn btn-primary form-control" onclick="send_data()" style="background: #f69314; border: none; color: #fff; font-size: 20px;
+                                border-radius: 30px; padding: 15px 80px; margin-left: 210px; line-height: 1.5; cursor: pointer; text-align:center;"> Predict</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="col-md-12" style="text-align: center">
+                        <h3><span id="prediction"></span> </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container1">
+        <div class="card">
+            <h2>Linear Regression</h2>
+            <p>Using linear regression to predict housing prices</p>
+            <ul>
+                <li>Based on historical data</li>
+                <li>Considers various features</li>
+                <li>Works well for large datasets</li>
+                <li>Requires data preprocessing</li>
+                <li>Provides continuous output</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Model Evaluation</h2>
+            <p>Evaluating the performance of the regression model</p>
+            <ul>
+                <li>Using metrics like RMSE and R-squared</li>
+                <li>Comparing predicted and actual prices</li>
+                <li>Assessing the model's accuracy</li>
+                <li>Adjusting parameters for optimization</li>
+                <li>Iterative testing and refinement</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Feature<br>Selection</h2>
+            <p>Choosing relevant features for the prediction</p>
+            <ul>
+                <li>Identifying influential variables</li>
+                <li>Handling multicollinearity</li>
+                <li>Eliminating irrelevant attributes</li>
+                <li>Balancing complexity and information</li>
+                <li>Improving model performance</li>
+            </ul>
+        </div>
+    </div>
+   <script>
+        function form_handler(event){     // Prevents the default form submission behavior
+            event.preventDefault();
+        }
+        function send_data()     // Function to send form data to the server
+        {
+            document.querySelector('form').addEventListener("submit", form_handler);
+
+            var fd = new FormData(document.querySelector('form'));
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('POST','/predict',true);
+
+            document.getElementById("prediction").innerHTML = "Wait Predicting Price!....";
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == XMLHttpRequest.DONE){
+                    document.getElementById('prediction').innerHTML = "Prediction: Rs "+xhr.responseText;
+                }
+            };
+            xhr.onload = function(){};
+            xhr.send(fd);
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
+
