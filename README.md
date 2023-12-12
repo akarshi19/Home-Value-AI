@@ -1,2 +1,2 @@
 # Home-Value-AI
-Predictiong Real Estate price using macc=hine learning
+Predictiong Real Estate price using machine learning
