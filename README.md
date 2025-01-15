@@ -12,7 +12,7 @@ Welcome to **Home Value AI**, a project that predicts the price of houses based 
 ---
 
 ## Architecture
-#![R]()
+#!()
 The architecture of the project is as follows:
 
 ### 1. **ML Model**
@@ -81,7 +81,7 @@ The architecture of the project is as follows:
    ```
 4. Start the Flask server:
    ```bash
-   python app.py
+   python main.py
    ```
 5. Open the website in your browser:
    ```
@@ -105,14 +105,11 @@ The architecture of the project is as follows:
 ## File Structure
 ```
 Home Value AI
-├── app.py                # Flask application
-├── static
-│   ├── styles.css        # CSS files
-│   ├── script.js         # JavaScript files
+├── main.py                # Flask application
 ├── templates
-│   ├── index.html        # Main HTML file
+│   ├── predict.html        # Main HTML file
 ├── model
-│   ├── house_price_model.pkl  # Trained ML model
+│   ├── LinearRegressionModel1.pkl  # Trained ML model
 ├── requirements.txt      # Dependencies
 └── README.md             # Project documentation
 ```
@@ -137,6 +134,6 @@ This project is licensed under the MIT License. See the LICENSE file for details
 ---
 
 ## Contact
-For any queries or feedback, please reach out to us at [your-email@example.com].
+For any queries or feedback, please reach out to us at [akarshigmathur@gmail.com].
 
 
