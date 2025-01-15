@@ -1,18 +1,20 @@
-# Home Value AI
+# Home Value AI 🌟
 
 Welcome to **Home Value AI**, a project that predicts the price of houses based on key features such as location, number of bedrooms (BHK), square footage, and number of bathrooms. This project uses a **Linear Regression Model** built with Python and integrates it with a web interface using Flask. The website's frontend is crafted using HTML, CSS, and JavaScript.
 
 ---
 
-## Features
+## 🌈Features
 - Predict house prices with high accuracy based on user input.
 - Interactive and user-friendly web interface.
 - Lightweight and scalable architecture.
 
 ---
 
-## Architecture
-#!()
+## 🏗️Architecture
+![R](https://github.com/akarshi19/Home-Value-AI/blob/master/images/architecture.jpg)
+
+
 The architecture of the project is as follows:
 
 ### 1. **ML Model**
@@ -43,7 +45,7 @@ The architecture of the project is as follows:
 
 ---
 
-## Technology Stack
+##  🧑‍💻Technology Stack
 ### 1. **Machine Learning**
 - Language: Python
 - Model: Linear Regression
@@ -58,7 +60,7 @@ The architecture of the project is as follows:
 
 ---
 
-## Installation and Setup
+## 🛠️Installation and Setup
 
 ### Prerequisites
 - Python (>=3.7)
@@ -69,11 +71,11 @@ The architecture of the project is as follows:
 ### Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/home-value-ai.git
+   git clone  https://github.com/akarshi19/Home-Value-AI.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd home-value-ai
+   cd Home-Value-AI
    ```
 3. Install dependencies:
    ```bash
@@ -90,7 +92,7 @@ The architecture of the project is as follows:
 
 ---
 
-## Usage
+## 🚀Usage
 1. Open the website in your browser.
 2. Enter the following details:
    - **Location**: Enter the city or area.
@@ -102,7 +104,7 @@ The architecture of the project is as follows:
 
 ---
 
-## File Structure
+## 📁File Structure
 ```
 Home Value AI
 ├── main.py                # Flask application
@@ -116,24 +118,29 @@ Home Value AI
 
 ---
 
-## Future Enhancements
+## 🔮Future Enhancements
 - Add more advanced ML models (e.g., Random Forest, Gradient Boosting).
 - Enhance the frontend design with responsive frameworks like Bootstrap.
 - Add support for more features, such as amenities and proximity to landmarks.
 
 ---
 
-## Contributing
+## 🤝Contributing
 We welcome contributions! Feel free to open issues and pull requests to improve the project.
 
 ---
 
-## License
+## 📣License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 ---
 
-## Contact
-For any queries or feedback, please reach out to us at [akarshigmathur@gmail.com].
+## 📞 Contact Information
+
+If you have any questions, feedback, or suggestions, feel free to reach out!
+
+- **Email**: [akarshigmathur@gmail.com](mailto:akarshigmathur@gmail.com)
+- **GitHub**: [akarshi19](https://github.com/akarshi19)
+- **LinkedIn**: [Akarshi Mathur](https://www.linkedin.com/in/akarshimathur19/)
 
 
